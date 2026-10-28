@@ -19,7 +19,7 @@ for date in ['2020-02-01','2020-04-18','2020-09-01']:
             np.testing.assert_allclose(js[s+'_'+stat],expected,atol=.000006)
 for s in SENSORS:
     np.testing.assert_allclose(daily[s+'_ma7'],daily[s+'_mean'].rolling(7,min_periods=7).mean(),equal_nan=True)
-for target in re.findall(r'!\[[^\]]*\]\(([^)]+)\)',(ROOT/'REPORT.md').read_text(encoding='utf-8')):
+for target in re.findall(r'!\[[^\]]*\]\(([^)]+)\)',(ROOT/'README.md').read_text(encoding='utf-8')):
     assert (ROOT/target).is_file(),target
 assert all(r['TP2_mean']==0 and r['assumed_off'] for r in web['daily'] if r['samples']==0)
 assert len(web['hourly'])==214*24
