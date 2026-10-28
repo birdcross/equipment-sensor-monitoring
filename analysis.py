@@ -138,6 +138,11 @@ AI 초안이므로 제출자는 본인이 검토한 판단과 수정 사항을 �
     guide=marker+existing.split(marker,1)[1] if marker in existing else ''
     analysis_part=report.split('## 8. 재현 및 제출')[0].rstrip()
     analysis_part=analysis_part.replace('# 압축기 일별 상태 모니터링 분석 리포트','# HYDRA — 설비 센서 분석 및 이상 수치 관리 리포트',1)
+    # Preserve the actual conversation excerpts and verification log across regeneration.
+    log_heading='## 7. AI 사용 로그'
+    if log_heading in existing and marker in existing:
+        saved_log=existing.split(log_heading,1)[1].split(marker,1)[0].rstrip()
+        analysis_part=analysis_part.split(log_heading,1)[0]+log_heading+saved_log
     document.write_text(analysis_part+'\n\n'+guide+'\n',encoding='utf-8')
     print(json.dumps(meta,indent=2))
 if __name__=='__main__':main()
