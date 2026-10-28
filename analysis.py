@@ -133,11 +133,8 @@ AI 초안이므로 제출자는 본인이 검토한 판단과 수정 사항을 �
 본 문서의 실행 명령으로 원본·일별 CSV·시각화·보고서를 재생성한다. 대시보드에 전체 일별 그래프와 선택 날짜의 시간별 상세가 있다. 시계열 분해·예측 보너스와 GitHub 원격 게시, 보너스 제출용 스크린샷 세트는 별도 준비 사항이다.
 '''
     document=ROOT/'REPORT.md'
-    marker='<!-- PROJECT_GUIDE_START -->'
-    existing=document.read_text(encoding='utf-8') if document.exists() else ''
-    guide=marker+existing.split(marker,1)[1] if marker in existing else ''
     analysis_part=report.split('## 8. 재현 및 제출')[0].rstrip()
     analysis_part=analysis_part.replace('# 압축기 일별 상태 모니터링 분석 리포트','# HYDRA — 설비 센서 분석 및 이상 수치 관리 리포트',1)
-    document.write_text(analysis_part+'\n\n'+guide+'\n',encoding='utf-8')
+    document.write_text(analysis_part+'\n\n실행 방법과 대시보드 사용법은 [README.md](README.md)를 참고하세요.\n',encoding='utf-8')
     print(json.dumps(meta,indent=2))
 if __name__=='__main__':main()
