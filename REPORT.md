@@ -157,7 +157,7 @@ python3 -m venv .venv
 | 인사이트 3개 이상 | 5절의 관찰·해석·활용 3개 |
 | Python 코드와 재현 방법 | analysis.py / requirements.txt / 본 문서 |
 | AI 사용 투명성 | 7절의 작업·이유·검증 방법 |
-| GitHub 저장소 | 본 프로젝트를 본인 원격 저장소에 게시하고 제출 URL 제공 필요 |
+| GitHub 저장소 | [birdcross/equipment-sensor-monitoring](https://github.com/birdcross/equipment-sensor-monitoring) |
 | 대시보드 보너스 | 기간·날짜·센서 탐색, 신규 입력 및 조치 관리 구현 |
 | 분해·예측 보너스 | 수행하지 않음 |
 
