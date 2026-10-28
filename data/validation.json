@@ -1,0 +1,13 @@
+{
+  "raw_rows": 1516948,
+  "start": "2020-02-01 00:00:00",
+  "end": "2020-09-01 03:59:50",
+  "calendar_days": 214,
+  "observed_days": 212,
+  "empty_days": 2,
+  "median_interval_seconds": 10.0,
+  "max_gap_seconds": 172918.0,
+  "missing_cells": 0,
+  "duplicate_timestamps": 0,
+  "sha256": "aab991a970e58210de853bb8078ce0e63abb4d9412fdc5c79792dae3d8e1721a"
+}

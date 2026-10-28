@@ -1,0 +1,14 @@
+const assert=require('node:assert/strict');
+const {detect}=require('./dashboard/alerts.js');
+const row=(h,v,off=false)=>({timestamp:`2020-01-01T${String(h).padStart(2,'0')}:00:00.000`,S_mean:v,assumed_off:off});
+const rule={S:{enabled:true,low:2,high:8,hours:2}};
+assert.equal(detect([row(0,9),row(1,10)],rule).length,1);
+assert.equal(detect([row(0,8),row(1,2)],rule).length,0);
+assert.equal(detect([row(0,0,true),row(1,0,true)],rule).length,0);
+assert.equal(detect([row(0,9),row(1,0,true),row(2,9)],rule).length,0);
+assert.equal(detect([row(0,9),row(2,9)],rule).length,0);
+assert.equal(detect([row(0,1),row(1,9)],rule).length,0);
+assert.equal(detect([row(0,9),row(1,10)],{S:{...rule.S,enabled:false}}).length,0);
+const a=detect([row(0,9),row(1,10)],rule)[0];
+const b=detect([row(0,9),row(1,10)],{S:{...rule.S,high:8.5}})[0];assert.notEqual(a.id,b.id);
+console.log('PASS: duration, boundary, missing exclusion, continuity, direction, disabled rules, rule identity');
